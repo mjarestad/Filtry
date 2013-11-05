@@ -51,8 +51,8 @@ Add a the filter property to your Eloquent Model.
     class Post extends Eloquent {
     
         public static $filters = array(
-            'name'      => 'trim|ucwords',
-            'slug'  => 'trim|my_custom_filter'
+            'name' => 'trim|ucwords',
+            'slug' => 'trim|clean_url'
         );
         
     }
