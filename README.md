@@ -1,4 +1,4 @@
-Filter
+Laravel-Filters
 ==============
 
 A package to filter and sanitize input data in Laravel 4 or as a standalone package.
