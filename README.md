@@ -79,7 +79,7 @@ Every method can be used to filter a single value.
     
 ##Create custom filters
 
-Extend with custom filters to use in Filter::make() or as dynamic methods.
+Extend with custom filters to use in <code>Filter::make()</code> or as dynamic methods.
 
     Filter::extend('my_custom_filter', function($data){
         return str_replace('-', '_', $data);
