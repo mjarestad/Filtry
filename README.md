@@ -25,8 +25,8 @@ Add the Facade to the aliases array in app/config/app.php
 * trim
 * ltrim
 * rtrim
-* lower
-* upper
+* lower (strtolower)
+* upper (strtoupper)
 * ucfirst
 * ucwords
 * stripslashes
