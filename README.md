@@ -114,7 +114,7 @@ Call the extended filter dynamically
 
 ###Laravel 4 filters
 
-These filters can still be used in standalone version.
+Theese filters can still be used in a non Laravel application.
 
 * snake_case
 * camel_case
