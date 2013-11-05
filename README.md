@@ -46,7 +46,9 @@ Add the Facade to the aliases array in app/config/app.php
 * camel_case
 * studly_case
 
-##Usage in Laravel 4
+##Usage
+
+###In Laravel 4
 
 Add a the filter property to your Eloquent Model.
 
@@ -75,7 +77,7 @@ To get the unfiltered values back, use:
 
     $filter->getOld();
     
-##Usage in Standalone app
+###Standalone
 
     $filters = array(
         'name' => 'trim|ucfirst',
@@ -89,7 +91,7 @@ To get the unfiltered values back, use:
         'url'  => 'www.google.se'
     );
     
-    $filter = new Filter;
+    $filter = new Pixel\Filter;
     $filter->make($data, $filters);
     $filteredData = $filter->getFiltered();
     
