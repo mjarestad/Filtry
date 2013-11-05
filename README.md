@@ -14,11 +14,11 @@ Install through composer. Add require <code>mjarestad/filter</code> to your <cod
     
 ###Laravel 4
 
-Add the ServiceProvider to the provider array in app/config/app.php
+Add the ServiceProvider to the provider array in <code>app/config/app.php</code>
 
     'Pixel\Filter\FilterServiceProvider',
     
-Add the Facade to the aliases array in app/config/app.php
+Add the Facade to the aliases array in <code>app/config/app.php</code>
 
     'Filter'  => 'Pixel\Filter\FilterFacade',
 
