@@ -62,6 +62,10 @@ And in your controller.
     $filter = Filter::make(Input::all(), Post::$filters);
     $validator = Validator::make($filter->getFiltered(), Model::$rules);
     
+To get the unfiltered values back, use:
+
+    $filter->getOld();
+    
 ##Create custom filters
 
 Extend with custom filters to use in Filter::make() or as dynamic methods.
