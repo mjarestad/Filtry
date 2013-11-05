@@ -20,32 +20,6 @@ Add the Facade to the aliases array in app/config/app.php
 
     'Filter'  => 'Pixel\Filter\FilterFacade',
 
-##Available filters
-
-###Core PHP filters
-
-* trim
-* ltrim
-* rtrim
-* lower (strtolower)
-* upper (strtoupper)
-* ucfirst
-* ucwords
-* stripslashes
-
-###Custom filters
-
-* xss_clean - clean string with htmlspecialchars
-* remove_whitespace - removes all white spaces
-* slug - makes string url-friendly
-* prep_url - adds http:// if not present
-
-###Laravel 4 specific filters
-
-* snake_case
-* camel_case
-* studly_case
-
 ##Usage
 
 ###Laravel 4
@@ -106,3 +80,29 @@ Extend with custom filters to use in Filter::make() or as dynamic methods.
 Call the extended filter dynamically
 
     Filter::myCustomFilter('some-custom-string');
+    
+##Available filters
+
+###Core PHP filters
+
+* trim
+* ltrim
+* rtrim
+* lower (strtolower)
+* upper (strtoupper)
+* ucfirst
+* ucwords
+* stripslashes
+
+###Custom filters
+
+* xss_clean - clean string with htmlspecialchars
+* remove_whitespace - removes all white spaces
+* slug - makes string url-friendly
+* prep_url - adds http:// if not present
+
+###Laravel 4 specific filters
+
+* snake_case
+* camel_case
+* studly_case
