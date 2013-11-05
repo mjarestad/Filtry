@@ -61,3 +61,15 @@ And in your controller.
 
     $filter = Filter::make(Input::all(), Post::$filters);
     $validator = Validator::make($filter->getFiltered(), Model::$rules);
+    
+##Create custom filters
+
+Extend with custom filters to use in Filter::make() or as dynamic methods.
+
+    Filter::extend('my_custom_filter', function($data){
+        return str_replace('-', '_', $data);
+    });
+    
+Call the extended filter dynamically
+
+    Filter::myCustomFilter('some-custom-string');
