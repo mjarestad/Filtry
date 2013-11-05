@@ -6,7 +6,7 @@ This is perfect to use with the Laravel 4 Validation class to filter data before
 You can easily extend and create your own custom filters.
 
 ##Installation
-Install through composer. Add require <code>mjarestad/filter</code> to your <code>composer.json</code>
+Install through composer. Add require `mjarestad/filter` to your `composer.json`
 
     "require": {
         "mjarestad/filter": "dev-master"
@@ -14,11 +14,11 @@ Install through composer. Add require <code>mjarestad/filter</code> to your <cod
     
 ###Laravel 4
 
-Add the ServiceProvider to the providers array in <code>app/config/app.php</code>
+Add the ServiceProvider to the providers array in `app/config/app.php`
 
     'Pixel\Filter\FilterServiceProvider',
     
-Add the Facade to the aliases array in <code>app/config/app.php</code>
+Add the Facade to the aliases array in `app/config/app.php`
 
     'Filter'  => 'Pixel\Filter\FilterFacade',
 
@@ -44,11 +44,11 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
         
     }
     
-In your controller or service call <code>Filter::make()</code> and provide the data to filter and your filters array.
+In your controller or service call `Filter::make()` and provide the data to filter and your filters array.
 
     $filter = Filter::make(Input::all(), Link::$filters);
     
-To get the filtered value use <code>$filter->getFiltered()</code>
+To get the filtered value use `$filter->getFiltered()`
 
     $validator = Validator::make($filter->getFiltered(), Link::$rules);
     
@@ -82,7 +82,7 @@ Every method can be used to filter a single value.
     
 ##Create custom filters
 
-Extend with custom filters to use in <code>Filter::make()</code> or as dynamic methods.
+Extend with custom filters to use in `Filter::make()` or as dynamic methods.
 
     Filter::extend('my_custom_filter', function($data){
         return str_replace('-', '_', $data);
@@ -114,7 +114,7 @@ Call the extended filter dynamically
 
 ###Laravel 4 filters
 
-Theese filters can still be used in a non-Laravel application.
+> Theese filters can still be used in a non-Laravel application.
 
 * snake_case
 * camel_case
