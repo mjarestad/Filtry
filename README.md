@@ -2,7 +2,7 @@ Filter
 ==============
 
 A package to filter and sanitize input data in Laravel 4 or as a standalone package.
-You can easily extend and create your own custom filters.
+You can easily extend and create your own custom filters. This is perfect to use with the Laravel 4 Validation class to filter data before validation.
 
 ##Installation
 Install through composer. Add require <code>mjarestad/filter</code> to your <code>composer.json</code>
