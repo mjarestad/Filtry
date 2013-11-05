@@ -1,7 +1,7 @@
 Filter
 ==============
 
-Filter and sanitize input data
+Filter and sanitize input data. Create custom filters for easy use.
 
 ##Installation
 Install with composer.
