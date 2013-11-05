@@ -6,10 +6,10 @@ This is perfect to use with the Laravel 4 Validation class to filter data before
 You can easily extend and create your own custom filters.
 
 ##Installation
-Install through composer. Add require `mjarestad/filter` to your `composer.json`
+Install through composer. Add require `pixel/filter` to your `composer.json`
 
     "require": {
-        "mjarestad/filter": "dev-master"
+        "pixel/filter": "dev-master"
     }
     
 ###Laravel 4
