@@ -46,7 +46,7 @@ Add the Facade to the aliases array in app/config/app.php
 * camel_case
 * studly_case
 
-##Usage
+##Usage in Laravel 4
 
 Add a the filter property to your Eloquent Model.
 
@@ -74,6 +74,24 @@ And in your controller.
 To get the unfiltered values back, use:
 
     $filter->getOld();
+    
+##Usage in Standalone app
+
+    $filters = array(
+        'name' => 'trim|ucfirst',
+        'slug' => 'trim|clean_url',
+        'url'  => 'trim|prep_url'
+    );
+    
+    $data = array(
+        'name' => 'Google',
+        'slug' => 'Google link',
+        'url'  => 'www.google.se'
+    );
+    
+    $filter = new Filter;
+    $filter->make($data, $filters);
+    $filteredData = $filter->getFiltered();
     
 ##Create custom filters
 
