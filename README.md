@@ -43,3 +43,12 @@ Add the Facade to the aliases array in app/config/app.php
 * remove_whitespace
 * clean_url
 * prep_url
+
+##Usage
+
+Add a the filter property to your Eloquent Model.
+
+    $public static $filters = array(
+        'field1' => 'trim|ucwords',
+        'field2' => 'trim|clean_url|my_custom_filter'
+    );
