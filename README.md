@@ -54,6 +54,11 @@ To get the unfiltered values back, use:
 
     $filter->getOld();
     
+Every filter can be used like this...
+
+    Filter::trim('some string);
+    Filter::slug('some string);
+    
 ###Standalone
 
     $filters = array(
