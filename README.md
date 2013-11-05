@@ -48,19 +48,26 @@ Add the Facade to the aliases array in app/config/app.php
 
 Add a the filter property to your Eloquent Model.
 
-    class Post extends Eloquent {
+    class Link extends Eloquent {
     
         public static $filters = array(
-            'name' => 'trim|ucwords',
-            'slug' => 'trim|clean_url'
+            'name' => 'trim|ucfirst',
+            'slug' => 'trim|clean_url',
+            'url'  => 'trim|prep_url'
+        );
+        
+        public static $rules = array(
+            'name' => 'required',
+            'slug' => 'required',
+            'url'  => 'required'
         );
         
     }
     
 And in your controller.
 
-    $filter = Filter::make(Input::all(), Post::$filters);
-    $validator = Validator::make($filter->getFiltered(), Model::$rules);
+    $filter = Filter::make(Input::all(), Link::$filters);
+    $validator = Validator::make($filter->getFiltered(), Link::$rules);
     
 To get the unfiltered values back, use:
 
