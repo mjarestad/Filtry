@@ -112,7 +112,9 @@ Call the extended filter dynamically
 * slug - makes string url-friendly
 * prep_url - adds http:// if not present
 
-###Laravel 4 specific filters
+###Laravel 4 filters
+
+These filters can still be used in standalone version.
 
 * snake_case
 * camel_case
