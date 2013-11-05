@@ -14,7 +14,7 @@ Install through composer. Add require <code>mjarestad/filter</code> to your <cod
     
 ###Laravel 4
 
-Add the ServiceProvider to the provider array in <code>app/config/app.php</code>
+Add the ServiceProvider to the providers array in <code>app/config/app.php</code>
 
     'Pixel\Filter\FilterServiceProvider',
     
