@@ -24,7 +24,7 @@ Add the Facade to the aliases array in app/config/app.php
 
 ###Laravel 4
 
-Add a the filter property to your Eloquent Model.
+Add a the filter property to your Eloquent Model or anywhere else you prefer.
 
     class Link extends Eloquent {
     
@@ -42,9 +42,12 @@ Add a the filter property to your Eloquent Model.
         
     }
     
-And in your controller.
+And in your controller call Filter::make() and provide the data to filter and your filters array.
 
     $filter = Filter::make(Input::all(), Link::$filters);
+    
+To get the filtered value use $filter->getFiltered()
+
     $validator = Validator::make($filter->getFiltered(), Link::$rules);
     
 To get the unfiltered values back, use:
