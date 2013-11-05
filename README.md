@@ -60,6 +60,7 @@ Every method can be used to filter a single value.
 
     Filter::trim('some string');
     Filter::slug('some string');
+    Filter::snakeCase('some string');
     
 ###Standalone
 
