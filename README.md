@@ -48,12 +48,16 @@ Add the Facade to the aliases array in app/config/app.php
 
 Add a the filter property to your Eloquent Model.
 
-    class User extends Eloquent {
+    class Post extends Eloquent {
     
-        $public static $filters = array(
+        public static $filters = array(
             'name'      => 'trim|ucwords',
-            'username'  => 'trim|lower'
-            'password'  => 'trim|my_custom_filter'
+            'slug'  => 'trim|my_custom_filter'
         );
         
     }
+    
+And in your controller.
+
+    $filter = Filter::make(Input::all(), Post::$filters);
+    $validator = Validator::make($filter->getFiltered(), Model::$rules);
