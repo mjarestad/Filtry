@@ -30,7 +30,7 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
     
         public static $filters = array(
             'name' => 'trim|ucfirst',
-            'slug' => 'trim|clean_url',
+            'slug' => 'trim|slug',
             'url'  => 'trim|prep_url'
         );
         
@@ -63,7 +63,7 @@ Every filter can be used like this...
 
     $filters = array(
         'name' => 'trim|ucfirst',
-        'slug' => 'trim|clean_url',
+        'slug' => 'trim|slug',
         'url'  => 'trim|prep_url'
     );
     
