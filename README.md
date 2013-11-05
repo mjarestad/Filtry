@@ -1,7 +1,7 @@
-laravel-filter
+Filter
 ==============
 
-Filter and sanitize input data before validation
+Filter and sanitize input data
 
 ##Installation
 Install through composer
@@ -9,6 +9,8 @@ Install through composer
     "require": {
         "mjarestad/laravel-filter": "dev-master"
     }
+    
+###Laravel specific instructions
 
 Add the ServiceProvider to the provider array in app/config/app.php
 
