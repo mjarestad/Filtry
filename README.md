@@ -4,7 +4,7 @@ Filter
 Filter and sanitize input data
 
 ##Installation
-Install through composer
+Install with composer.
 
     "require": {
         "mjarestad/laravel-filter": "dev-master"
