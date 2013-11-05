@@ -42,7 +42,7 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
         
     }
     
-And in your controller call Filter::make() and provide the data to filter and your filters array.
+In your controller or service call Filter::make() and provide the data to filter and your filters array.
 
     $filter = Filter::make(Input::all(), Link::$filters);
     
