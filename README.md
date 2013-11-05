@@ -10,7 +10,7 @@ Install through composer
         "mjarestad/laravel-filter": "dev-master"
     }
     
-###In Laravel 4
+###Laravel 4
 
 Add the ServiceProvider to the provider array in app/config/app.php
 
@@ -48,7 +48,7 @@ Add the Facade to the aliases array in app/config/app.php
 
 ##Usage
 
-###In Laravel 4
+###Laravel 4
 
 Add a the filter property to your Eloquent Model.
 
