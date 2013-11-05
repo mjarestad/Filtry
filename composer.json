@@ -17,7 +17,7 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/Pixel/Filter"
         ],
         "psr-0": {
             "Pixel\\Filter\\": "src/"

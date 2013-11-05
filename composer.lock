@@ -3,8 +3,11 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f0f20c13bd93c6ac1d02b7d56736dd72",
+    "hash": "b87e1891d24d45a1db0765652cc694fd",
     "packages": [
+
+    ],
+    "packages-dev": [
         {
             "name": "illuminate/support",
             "version": "4.0.x-dev",
@@ -55,9 +58,7 @@
                 }
             ],
             "time": "2013-10-31 11:58:08"
-        }
-    ],
-    "packages-dev": [
+        },
         {
             "name": "phpunit/php-code-coverage",
             "version": "1.2.x-dev",
@@ -308,12 +309,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f5ba60c7758d3beeeac1b469f9e953bd05ffe673"
+                "reference": "5f4db6c56e53171370300974e47964003b477b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f5ba60c7758d3beeeac1b469f9e953bd05ffe673",
-                "reference": "f5ba60c7758d3beeeac1b469f9e953bd05ffe673",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5f4db6c56e53171370300974e47964003b477b1d",
+                "reference": "5f4db6c56e53171370300974e47964003b477b1d",
                 "shasum": ""
             },
             "require": {
@@ -374,7 +375,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-11-05 08:13:26"
+            "time": "2013-11-05 09:25:53"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
