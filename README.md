@@ -50,11 +50,11 @@ To get the filtered value use $filter->getFiltered()
 
     $validator = Validator::make($filter->getFiltered(), Link::$rules);
     
-To get the unfiltered values back, use:
+To get the unfiltered values, use:
 
     $filter->getOld();
     
-Every filter can be used like this...
+Every method can be used to filter a single value.
 
     Filter::trim('some string');
     Filter::slug('some string');
