@@ -20,4 +20,26 @@ Add the Facade to the aliases array in app/config/app.php
 
 ##Available filters
 
-* Trim
+###Core PHP filters
+
+* trim
+* ltrim
+* rtrim
+* lower
+* upper
+* ucfirst
+* ucwords
+* stripslashes
+
+###Laravel filters
+
+* snake_case
+* camel_case
+* studly_case
+
+###Custom filters
+
+* xss_clean
+* remove_whitespace
+* clean_url
+* prep_url
