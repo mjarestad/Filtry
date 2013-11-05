@@ -56,8 +56,8 @@ To get the unfiltered values back, use:
     
 Every filter can be used like this...
 
-    Filter::trim('some string);
-    Filter::slug('some string);
+    Filter::trim('some string');
+    Filter::slug('some string');
     
 ###Standalone
 
