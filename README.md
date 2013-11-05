@@ -41,9 +41,13 @@ Add the Facade to the aliases array in app/config/app.php
 
 ###Custom filters
 
+#####xss_clean
+
+#####remove_whitepace
+Removes all white spaces
 * xss_clean
 * remove_whitespace
-* clean_url
+* slug
 * prep_url
 
 ##Usage
