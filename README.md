@@ -10,7 +10,7 @@ Install through composer
         "mjarestad/laravel-filter": "dev-master"
     }
     
-###Laravel specific instructions
+###In Laravel 4
 
 Add the ServiceProvider to the provider array in app/config/app.php
 
