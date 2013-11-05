@@ -24,7 +24,7 @@ Add the Facade to the aliases array in app/config/app.php
 
 ###Laravel 4
 
-Add a the filter property to your Eloquent Model or anywhere else you prefer.
+Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
     class Link extends Eloquent {
     
