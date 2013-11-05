@@ -1,0 +1,27 @@
+{
+    "name": "pixel/filter",
+    "description": "Filter and sanitize input data in Laravel 4 or as a standalone package.",
+    "keywords": ["laravel", "filter"],
+    "authors": [
+        {
+            "name": "Mattias Jarestad",
+            "email": "info@pixelstudios.se"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "illuminate/support": "4.0.*",
+        "phpunit/phpunit": "3.7.*@dev"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Pixel\\Filter\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
