@@ -1,6 +1,7 @@
 {
     "name": "pixel/filter",
     "description": "Filter and sanitize input data in Laravel 4 or as a standalone package.",
+    "license": ["MIT"],
     "keywords": ["laravel", "filter"],
     "authors": [
         {
