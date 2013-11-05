@@ -10,5 +10,10 @@ Install through composer
         "mjarestad/laravel-filter": "dev-master"
     }
 
-Add the ServiceProvider to app/config/app.php
+Add the ServiceProvider to the provider array in app/config/app.php
+
     'Pixel\Filter\FilterServiceProvider',
+    
+Add the Facade to the aliases array in app/config/app.php
+
+    'Filter'  => 'Pixel\Filter\FilterFacade',
