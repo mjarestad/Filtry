@@ -17,3 +17,7 @@ Add the ServiceProvider to the provider array in app/config/app.php
 Add the Facade to the aliases array in app/config/app.php
 
     'Filter'  => 'Pixel\Filter\FilterFacade',
+
+##Available filters
+
+* Trim
