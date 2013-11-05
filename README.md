@@ -33,18 +33,20 @@ Add the Facade to the aliases array in app/config/app.php
 * ucwords
 * stripslashes
 
-###Laravel filters
+###Custom filters
+
+####xss_clean
+clean string with htmlspecialchars
+####remove_whitespace
+removes all white spaces
+* slug (makes string url-friendly)
+* prep_url (adds http:// if not present)
+
+###Laravel 4 specific filters
 
 * snake_case
 * camel_case
 * studly_case
-
-###Custom filters
-
-* xss_clean (clean string with htmlspecialchars)
-* remove_whitespace (removes all white spaces)
-* slug (makes string url-friendly)
-* prep_url (adds http:// if not present)
 
 ##Usage
 
