@@ -48,7 +48,12 @@ Add the Facade to the aliases array in app/config/app.php
 
 Add a the filter property to your Eloquent Model.
 
-    $public static $filters = array(
-        'field1' => 'trim|ucwords',
-        'field2' => 'trim|clean_url|my_custom_filter'
-    );
+    class User extends Eloquent {
+    
+        $public static $filters = array(
+            'name'      => 'trim|ucwords',
+            'username'  => 'trim|lower'
+            'password'  => 'trim|my_custom_filter'
+        );
+        
+    }
