@@ -4,10 +4,10 @@ Filter
 Filter and sanitize input data. Create custom filters for easy use.
 
 ##Installation
-Install with composer.
+Install through composer. Add require <code>mjarestad/filter</code> to your <code>composer.json</code>
 
     "require": {
-        "mjarestad/laravel-filter": "dev-master"
+        "mjarestad/filter": "dev-master"
     }
     
 ###Laravel 4
@@ -42,11 +42,11 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
         
     }
     
-In your controller or service call Filter::make() and provide the data to filter and your filters array.
+In your controller or service call <code>Filter::make()</code> and provide the data to filter and your filters array.
 
     $filter = Filter::make(Input::all(), Link::$filters);
     
-To get the filtered value use $filter->getFiltered()
+To get the filtered value use <code>$filter->getFiltered()</code>
 
     $validator = Validator::make($filter->getFiltered(), Link::$rules);
     
