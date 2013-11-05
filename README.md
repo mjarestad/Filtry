@@ -3,7 +3,7 @@ laravel-filter
 
 Filter and sanitize input data before validation
 
-#Installation
+##Installation
 Install through composer
 
     "require": {
