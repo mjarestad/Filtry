@@ -78,7 +78,7 @@ class Filtry
 	/**
 	 * Extend with custom filters
 	 * @param  string $filter
-	 * @param  callable $extension
+	 * @param  Closure $extension
 	 * @return void
 	 */
 	public function extend($filter, $extension)
@@ -255,7 +255,7 @@ class Filtry
 	 * Dynamically call extension filters
 	 * @param  string $filter
 	 * @param  array $data
-	 * @return callable
+	 * @return Closure
 	 */
 	public function __call($filter, $data)
 	{
