@@ -82,6 +82,8 @@ Every method can be used to filter a single value.
     
 ##Create custom filters
 
+###Laravel 4
+
 Extend with custom filters to use in `Filtry::make()` or as dynamic methods.
 
     Filtry::extend('my_custom_filter', function($data){
@@ -91,6 +93,16 @@ Extend with custom filters to use in `Filtry::make()` or as dynamic methods.
 Call the extended filter dynamically
 
     Filtry::myCustomFilter('some-custom-string');
+
+###Standalone
+
+    $filtry = new Filtry\Filtry;
+
+    $filtry->extend('my_custom_filter', function($data){
+        return str_replace('-', '_', $data);
+    });
+
+    $filtry->myCustomFilter('some-custom-string');
     
 ##Available filters
 
