@@ -1,5 +1,5 @@
 {
-    "name": "pixel/filter",
+    "name": "mjarestad/filtry",
     "description": "Filter and sanitize input data in Laravel 4 or as a standalone package.",
     "license": ["MIT"],
     "keywords": ["laravel", "filter"],
@@ -18,10 +18,10 @@
     },
     "autoload": {
         "classmap": [
-            "src/Pixel/Filter"
+            "src/Filtry"
         ],
         "psr-0": {
-            "Pixel\\Filter\\": "src/"
+            "Filtry\\": "src/"
         }
     },
     "minimum-stability": "dev"

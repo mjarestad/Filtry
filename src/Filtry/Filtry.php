@@ -1,4 +1,4 @@
-<?php namespace Pixel\Filter;
+<?php namespace Filtry;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,7 +8,7 @@
 | Filter and sanitize input data in Laravel 4 or as a standalone package.
 |
 */
-class Filter
+class Filtry
 {
 	/**
 	 * Input data

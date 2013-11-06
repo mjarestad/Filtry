@@ -1,8 +1,8 @@
-<?php namespace Pixel\Filter;
+<?php namespace Filtry;
 
 use Illuminate\Support\ServiceProvider;
 
-class FilterServiceProvider extends ServiceProvider {
+class FiltryServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -18,7 +18,7 @@ class FilterServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('pixel/filter');
+		$this->package('mjarestad/filtry');
 	}
 
 	/**
@@ -28,10 +28,10 @@ class FilterServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		// Register 'filter' instance container to our Filter object
-		$this->app['filter'] = $this->app->share(function( $app )
+		// Register 'filtry' instance container to our Filtry object
+		$this->app['filtry'] = $this->app->share(function( $app )
         {
-            return new Filter;
+            return new Filtry;
         });
 	}
 
