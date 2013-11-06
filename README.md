@@ -1,4 +1,4 @@
-Laravel-Filters
+Filtry
 ==============
 
 A package to filter and sanitize input data in Laravel 4 or as a standalone package.
@@ -76,7 +76,7 @@ Every method can be used to filter a single value.
         'url'  => 'www.google.se'
     );
     
-    $filter = new Filtry;
+    $filter = new Filtry\Filtry;
     $filter->make($data, $filters);
     $filteredData = $filter->getFiltered();
     
