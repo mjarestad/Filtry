@@ -6,7 +6,7 @@ This is perfect to use with the Laravel 4 Validation class to filter data before
 You can easily extend and create your own custom filters.
 
 ##Installation
-Install through composer. Add require `pixel/filter` to your `composer.json`
+Install through composer. Add require `mjarestad/filtry` to your `composer.json`
 
     "require": {
         "mjarestad/filtry": "dev-master"
@@ -46,15 +46,15 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
     
 In your controller or service call `Filtry::make()` and provide the data to filter and your filters array.
 
-    $filter = Filtry::make(Input::all(), Link::$filters);
+    $filtry = Filtry::make(Input::all(), Link::$filters);
     
-To get the filtered value use `$filter->getFiltered()`
+To get the filtered value use `$filtry->getFiltered()`
 
-    $validator = Validator::make($filter->getFiltered(), Link::$rules);
+    $validator = Validator::make($filtry->getFiltered(), Link::$rules);
     
 To get the unfiltered values, use:
 
-    $filter->getOld();
+    $filtry->getOld();
     
 Every method can be used to filter a single value.
 
@@ -76,9 +76,9 @@ Every method can be used to filter a single value.
         'url'  => 'www.google.se'
     );
     
-    $filter = new Filtry\Filtry;
-    $filter->make($data, $filters);
-    $filteredData = $filter->getFiltered();
+    $filtry = new Filtry\Filtry;
+    $filtry->make($data, $filters);
+    $filteredData = $filtry->getFiltered();
     
 ##Create custom filters
 
