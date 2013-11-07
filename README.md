@@ -20,7 +20,7 @@ Add the ServiceProvider to the providers array in `app/config/app.php`
     
 Add the Facade to the aliases array in `app/config/app.php`
 
-    'Filtry'  => 'Mjarestad\Filtry\FiltryFacade',
+    'Filtry'  => 'Mjarestad\Filtry\Facades\Filtry',
 
 ##Usage
 
