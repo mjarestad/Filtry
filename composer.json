@@ -18,7 +18,7 @@
     },
     "autoload": {
         "classmap": [
-            "src/Filtry"
+            "src/Mjarestad/Filtry"
         ],
         "psr-0": {
             "Mjarested\\Filtry\\": "src/"
