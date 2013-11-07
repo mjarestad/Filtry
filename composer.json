@@ -21,7 +21,7 @@
             "src/Filtry"
         ],
         "psr-0": {
-            "Filtry\\": "src/"
+            "Mjarested\\Filtry\\": "src/"
         }
     },
     "minimum-stability": "dev"

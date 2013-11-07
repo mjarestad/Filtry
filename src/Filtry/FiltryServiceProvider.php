@@ -1,4 +1,4 @@
-<?php namespace Filtry;
+<?php namespace Mjarestad\Filtry;
 
 use Illuminate\Support\ServiceProvider;
 
