@@ -16,11 +16,11 @@ Install through composer. Add require `mjarestad/filtry` to your `composer.json`
 
 Add the ServiceProvider to the providers array in `app/config/app.php`
 
-    'Filtry\FiltryServiceProvider',
+    'Mjarestad\Filtry\FiltryServiceProvider',
     
 Add the Facade to the aliases array in `app/config/app.php`
 
-    'Filtry'  => 'Filtry\FiltryFacade',
+    'Filtry'  => 'Mjarestad\Filtry\FiltryFacade',
 
 ##Usage
 
@@ -76,7 +76,7 @@ Every method can be used to filter a single value.
         'url'  => 'www.google.se'
     );
     
-    $filtry = new Filtry\Filtry;
+    $filtry = new Mjarestad\Filtry\Filtry;
     $filtry->make($data, $filters);
     $filteredData = $filtry->getFiltered();
     
@@ -96,7 +96,7 @@ Call the extended filter dynamically
 
 ###Standalone
 
-    $filtry = new Filtry\Filtry;
+    $filtry = new Mjarestad\Filtry\Filtry;
 
     $filtry->extend('my_custom_filter', function($data){
         return str_replace('-', '_', $data);
