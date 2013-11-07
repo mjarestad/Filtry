@@ -1,6 +1,6 @@
 <?php
 
-use Filtry\Filtry;
+use Mjarestad\Filtry\Filtry;
 
 class FiltryTest extends \PHPUnit_Framework_TestCase
 {
