@@ -68,8 +68,8 @@ Every method can be used to filter a single value.
     );
     
     $data = array(
-        'name' => 'John Doe',
-        'slug' => 'My post title',
+        'author' => 'John Doe',
+        'slug'   => 'My post title',
     );
     
     $filtry = new Mjarestad\Filtry\Filtry;
