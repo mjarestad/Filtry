@@ -28,29 +28,27 @@ Add the Facade to the aliases array in `app/config/app.php`
 
 Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
-    class Link extends Eloquent {
+    class Post extends Eloquent {
     
         public static $filters = array(
-            'name' => 'trim|ucfirst',
-            'slug' => 'trim|slug',
-            'url'  => 'trim|prep_url'
+            'author' => 'trim|ucwords',
+            'slug'   => 'trim|slug'
         );
         
         public static $rules = array(
-            'name' => 'required',
-            'slug' => 'required',
-            'url'  => 'required'
+            'author' => 'required',
+            'slug'   => 'required'
         );
         
     }
     
 In your controller or service call `Filtry::make()` and provide the data to filter and your filters array.
 
-    $filtry = Filtry::make(Input::all(), Link::$filters);
+    $filtry = Filtry::make(Input::all(), Post::$filters);
     
 To get the filtered value use `$filtry->getFiltered()`
 
-    $validator = Validator::make($filtry->getFiltered(), Link::$rules);
+    $validator = Validator::make($filtry->getFiltered(), Post::$rules);
     
 To get the unfiltered values, use:
 
@@ -65,15 +63,13 @@ Every method can be used to filter a single value.
 ###Standalone
 
     $filters = array(
-        'name' => 'trim|ucfirst',
-        'slug' => 'trim|slug',
-        'url'  => 'trim|prep_url'
+        'author' => 'trim|ucwords',
+        'slug'   => 'trim|slug'
     );
     
     $data = array(
-        'name' => 'Google',
-        'slug' => 'Google link',
-        'url'  => 'www.google.se'
+        'name' => 'John Doe',
+        'slug' => 'My post title',
     );
     
     $filtry = new Mjarestad\Filtry\Filtry;
