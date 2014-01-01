@@ -133,4 +133,11 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$data = $filter->getfiltered();
 		$this->assertEquals('test-string', $data['attribute']);
 	}
+
+    public function testGetValuesWithoutFilters()
+    {
+        $filter = $this->filtry->make(array('attribute_1' => ' value ', 'attribute_2' => ' value '), array('attribute_1' => 'trim'));
+        $data = $filter->getFiltered();
+        $this->assertEquals(' value ', $data['attribute_2']);
+    } 
 }

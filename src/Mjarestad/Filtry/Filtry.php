@@ -63,7 +63,7 @@ class Filtry
 	public function getFiltered()
 	{
 		$this->filter();
-		return $this->filteredData;
+        return array_merge($this->data, $this->filteredData);
 	}
 
 	/**
