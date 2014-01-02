@@ -17,11 +17,8 @@
         "phpunit/phpunit": "3.7.*@dev"
     },
     "autoload": {
-        "classmap": [
-            "src/Mjarestad/Filtry"
-        ],
         "psr-0": {
-            "Mjarested\\Filtry\\": "src/"
+            "Mjarestad\\Filtry\\": "src/"
         }
     },
     "minimum-stability": "dev"
