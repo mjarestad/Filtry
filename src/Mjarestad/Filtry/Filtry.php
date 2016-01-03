@@ -277,6 +277,12 @@ class Filtry
 	{
 		foreach($this->filters as $attribute => $filters)
 		{
+			// Check if the attribute is present in the input data
+			if(!array_key_exists($attribute, $this->data))
+			{
+				continue;
+			}
+
 			$data = $this->data[$attribute];
 
 			foreach($filters as $filter)
