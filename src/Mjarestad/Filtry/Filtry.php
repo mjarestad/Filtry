@@ -228,7 +228,7 @@ class Filtry
 	}
 
     /**
-     * Strip whitespaces
+     * Strip all white spaces
      * @param $data
      * @return mixed
      */
@@ -238,7 +238,7 @@ class Filtry
     }
 
     /**
-     * Strip dashes
+     * Strip all dashes
      * @param $data
      * @return mixed
      */

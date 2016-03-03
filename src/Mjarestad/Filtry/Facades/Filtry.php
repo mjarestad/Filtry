@@ -6,5 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 class Filtry extends Facade
 {
-	protected static function getFacadeAccessor() { return 'filtry'; }
+	protected static function getFacadeAccessor()
+    {
+        return 'filtry';
+    }
 }
