@@ -71,6 +71,12 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('testsomemore', $data);
 	}
 
+	public function testChangeNameToRemoveWhitespaceToStripWhitespaces()
+	{
+		$data = $this->filtry->stripWhitespaces('test some more');
+		$this->assertEquals('testsomemore', $data);
+	}
+
 	public function testSlug()
 	{
 		$data = $this->filtry->slug('test Some MORE');

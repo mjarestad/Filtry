@@ -224,8 +224,13 @@ class Filtry
 	 */
 	public function removeWhitespace($data)
 	{
-		return str_replace(' ', '', $data);
+		return $this->stripWhitespaces($data);
 	}
+
+    public function stripWhitespaces($data)
+    {
+        return str_replace(' ', '', $data);
+    }
 
 	/**
 	 * Remove all special chars and make it url-friendly
