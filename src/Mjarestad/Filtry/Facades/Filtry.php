@@ -1,4 +1,6 @@
-<?php namespace Mjarestad\Filtry\Facades;
+<?php
+
+namespace Mjarestad\Filtry\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

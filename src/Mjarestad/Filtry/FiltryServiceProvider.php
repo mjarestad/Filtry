@@ -1,9 +1,11 @@
-<?php namespace Mjarestad\Filtry;
+<?php
+
+namespace Mjarestad\Filtry;
 
 use Illuminate\Support\ServiceProvider;
 
-class FiltryServiceProvider extends ServiceProvider {
-
+class FiltryServiceProvider extends ServiceProvider
+{
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -29,8 +31,7 @@ class FiltryServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		// Register 'filtry' instance container to our Filtry object
-		$this->app['filtry'] = $this->app->share(function( $app )
-        {
+		$this->app['filtry'] = $this->app->share(function( $app ) {
             return new Filtry;
         });
 	}

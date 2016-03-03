@@ -1,4 +1,6 @@
-<?php namespace Mjarestad\Filtry;
+<?php
+
+namespace Mjarestad\Filtry;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +47,7 @@ class Filtry
 	 * @param  array $data
 	 * @param  string|array $filters
 	 * @param boolean $recursive
-	 * @return Pixel\Filter\Filter
+	 * @return Filtry
 	 */
 	public function make($data, $filters, $recursive = true)
 	{
@@ -63,6 +65,7 @@ class Filtry
 	public function getFiltered()
 	{
 		$this->filter();
+
         return array_merge($this->data, $this->filteredData);
 	}
 
@@ -78,7 +81,7 @@ class Filtry
 	/**
 	 * Extend with custom filters
 	 * @param  string $filter
-	 * @param  Closure $extension
+	 * @param  $extension
 	 * @return void
 	 */
 	public function extend($filter, $extension)
@@ -89,6 +92,7 @@ class Filtry
 	/**
 	 * Trim
 	 * @param  string $data
+	 * @param string $charlist
 	 * @return string
 	 */
 	public function trim($data, $charlist = ' ')
@@ -99,6 +103,7 @@ class Filtry
 	/**
 	 * Left trim
 	 * @param  string $data
+	 * @param string $charlist
 	 * @return string
 	 */
 	public function ltrim($data, $charlist = ' ')
@@ -109,6 +114,7 @@ class Filtry
 	/**
 	 * Right trim
 	 * @param  string $data
+	 * @param string $charlist
 	 * @return string
 	 */
 	public function rtrim($data, $charlist = ' ')
@@ -169,6 +175,7 @@ class Filtry
 	/**
 	 * Snake case
 	 * @param  string $data
+     * @param string $delimiter
 	 * @return string
 	 */
 	public function snakeCase($value, $delimiter = '_')
@@ -243,8 +250,7 @@ class Filtry
 	 */
 	public function prepUrl($data)
 	{
-		if(preg_match("#https?://#", $data) === 0)
-		{
+		if (preg_match("#https?://#", $data) === 0) {
     		$data = 'http://' . $data;
 		}
 
@@ -255,14 +261,14 @@ class Filtry
 	 * Dynamically call extension filters
 	 * @param  string $filter
 	 * @param  array $data
-	 * @return Closure
+	 * @return mixed
+     * @throws \Exception
 	 */
 	public function __call($filter, $data)
 	{
 		$filter = $this->snakeCase($filter);
 
-		if(isset($this->extensions[$filter]))
-		{
+		if (isset($this->extensions[$filter])) {
 			return call_user_func($this->extensions[$filter], $data[0]);
 		}
 
@@ -272,33 +278,24 @@ class Filtry
 	/**
 	 * Run provided filters on data
 	 * @return array
+     * @throws \Exception
 	 */
 	protected function filter()
 	{
-		foreach($this->filters as $attribute => $filters)
-		{
+		foreach ($this->filters as $attribute => $filters) {
 			// Check if the attribute is present in the input data
-			if(!array_key_exists($attribute, $this->data))
-			{
+			if (!array_key_exists($attribute, $this->data)) {
 				continue;
 			}
 
 			$data = $this->data[$attribute];
 
-			foreach($filters as $filter)
-			{
-				if(method_exists($this, $this->camelCase($filter)))
-				{
+			foreach ($filters as $filter) {
+				if (method_exists($this, $this->camelCase($filter))) {
 					$data = $this->filterWalker($filter, $data);
-				}
-
-				else if(isset($this->extensions[$filter]))
-				{
+				} elseif (isset($this->extensions[$filter])) {
 					$data = $this->filterExtensionWalker($filter, $data);
-				}
-
-				else
-				{
+				} else {
 					throw new \Exception("'$filter' is not a valid filter.");
 				}
 			}
@@ -319,16 +316,11 @@ class Filtry
 	{
 		$filter = $this->camelCase($filter);
 
-		if(is_array($data) and $this->recursive === true)
-		{
-			foreach($data as $key => $value)
-			{
+		if (is_array($data) and $this->recursive === true) {
+			foreach ($data as $key => $value) {
 				$data[$key] = call_user_func(array($this, $filter), $value);
 			}
-		}
-		
-		else
-		{
+		} else {
 			$data = call_user_func(array($this, $filter), $data);
 		}
 
@@ -343,16 +335,11 @@ class Filtry
 	 */
 	protected function filterExtensionWalker($filter, $data)
 	{
-		if(is_array($data) and $this->recursive === true)
-		{
-			foreach($data as $key => $value)
-			{
+		if (is_array($data) and $this->recursive === true) {
+			foreach ($data as $key => $value) {
 				$data[$key] = call_user_func($this->extensions[$filter], $data);
 			}
-		}
-		
-		else
-		{
+		} else {
 			$data = call_user_func($this->extensions[$filter], $data);
 		}
 
@@ -366,8 +353,7 @@ class Filtry
 	 */
 	protected function explodeFilters($filters)
 	{
-		foreach ($filters as $key => &$filter)
-		{
+		foreach ($filters as $key => &$filter) {
 			$filter = (is_string($filter)) ? explode('|', $filter) : $filter;
 		}
 
