@@ -227,9 +227,24 @@ class Filtry
 		return $this->stripWhitespaces($data);
 	}
 
+    /**
+     * Strip whitespaces
+     * @param $data
+     * @return mixed
+     */
     public function stripWhitespaces($data)
     {
         return str_replace(' ', '', $data);
+    }
+
+    /**
+     * Strip dashes
+     * @param $data
+     * @return mixed
+     */
+    public function stripDashes($data)
+    {
+        return str_replace('-', '', $data);
     }
 
 	/**
