@@ -16,19 +16,19 @@ Install through composer. Add require `mjarestad/filtry` to your `composer.json`
 
 Add the ServiceProvider to the providers array in `app/config/app.php`
 
-#### Laravel 5
+    Laravel 4
+    'Mjarestad\Filtry\FiltryServiceProvider',
+
+    Laravel 5:
     Mjarestad\Filtry\FiltryServiceProviderLaravel5::class
 
-#### Laravel 4
-    'Mjarestad\Filtry\FiltryServiceProvider',
-    
 Add the Facade to the aliases array in `app/config/app.php`
 
     'Filtry'  => 'Mjarestad\Filtry\Facades\Filtry',
 
 ##Usage
 
-###Laravel 4
+### Laravel 4
 
 Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
