@@ -16,7 +16,7 @@ Install through composer. Add require `mjarestad/filtry` to your `composer.json`
 
 Add the ServiceProvider to the providers array in `app/config/app.php`
 
-    Laravel 4
+    Laravel 4:
     'Mjarestad\Filtry\FiltryServiceProvider',
 
     Laravel 5:
