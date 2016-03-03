@@ -265,16 +265,16 @@ class Filtry
 
 	/**
 	 * Add http or https if missing
-	 * @param  string  $data
+	 * @param  string  $url
 	 * @return string
 	 */
-	public function prepUrl($data)
+	public function prepUrl($url)
 	{
-		if (preg_match("#https?://#", $data) === 0) {
-    		$data = 'http://' . $data;
-		}
+        if (empty($url)) {
+            return '';
+        }
 
-		return $data;
+        return parse_url($url, PHP_URL_SCHEME) === null ? 'http://' . $url : $url;
 	}
 
 	/**

@@ -95,6 +95,12 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('http://www.test.com', $data);
 	}
 
+    public function testUrlOnlyPreppedIfNotEmpty()
+    {
+        $data = $this->filtry->prepUrl('');
+        $this->assertEquals('', $data);
+    }
+
 	public function testCamelCase()
 	{
 		$data = $this->filtry->camelCase('test_camel_case');
