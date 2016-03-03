@@ -116,7 +116,8 @@ Call the extended filter dynamically
 ###Custom filters
 
 * xss_clean - clean string with htmlspecialchars
-* remove_whitespace - removes all white spaces
+* strip_whitespaces - strip all white spaces
+* strip_dashes - strip all dashes
 * slug - makes string url-friendly
 * prep_url - adds http:// if not present
 
