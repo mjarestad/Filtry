@@ -89,6 +89,12 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('test-some-more', $data);
 	}
 
+	public function testIfSlugReplacesSwedishCharacters()
+	{
+		$data = $this->filtry->slug('This is a test of åäö and ÅÄÖ');
+		$this->assertEquals('this-is-a-test-of-aao-and-aao', $data);
+	}
+
 	public function testPrepUrl()
 	{
 		$data = $this->filtry->prepUrl('www.test.com');
