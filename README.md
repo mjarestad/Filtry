@@ -14,11 +14,11 @@ composer require mjarestad/filtry
 
 Add the ServiceProvider to the providers array in `app/config/app.php`
 
-    Laravel 4:
-    'Mjarestad\Filtry\FiltryServiceProvider',
-
     Laravel 5:
     Mjarestad\Filtry\FiltryServiceProviderLaravel5::class
+
+    Laravel 4:
+    'Mjarestad\Filtry\FiltryServiceProvider',
 
 Add the Facade to the aliases array in `app/config/app.php`
 
@@ -26,7 +26,34 @@ Add the Facade to the aliases array in `app/config/app.php`
 
 ##Usage
 
-### Laravel 4
+###Laravel 5
+
+####Form Requests
+
+Extend your Form Request Validation classes with the provided Filtry Request to filter input data before validation.
+
+    use Mjarestad\Filtry\Http\Requests\Request;
+
+    class StorePostRequest extends Request
+    {
+        public function rules()
+        {
+            return [
+                'author' => 'required',
+                'slug'   => 'required'
+            ];
+        }
+
+        public function filters()
+        {
+            return [
+                'author' => 'trim|ucwords',
+                'slug'   => 'trim|slug'
+            ];
+        }
+    }
+
+###Laravel 4
 
 Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
