@@ -32,27 +32,26 @@ Add the Facade to the aliases array in `app/config/app.php`
 
 Extend your Form Request Validation classes with the provided Filtry Request to filter input data before validation.
 
-use Mjarestad\Filtry\Http\Requests\Request;
+    use Mjarestad\Filtry\Http\Requests\Request;
 
-class StorePostRequest extends Request
-{
-    public function rules()
+    class StorePostRequest extends Request
     {
-        return [
-            'author' => 'required',
-            'slug'   => 'required'
-        ];
-    }
+        public function rules()
+        {
+            return [
+                'author' => 'required',
+                'slug'   => 'required'
+            ];
+        }
 
-    public function filters()
-    {
-        return [
-            'author' => 'trim|ucwords',
-            'slug'   => 'trim|slug'
-        ];
+        public function filters()
+        {
+            return [
+                'author' => 'trim|ucwords',
+                'slug'   => 'trim|slug'
+            ];
+        }
     }
-}
-
 
 ###Laravel 4
 
