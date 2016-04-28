@@ -6,11 +6,7 @@ This is perfect to use with the Laravel 4 Validation class to filter data before
 You can easily extend and create your own custom filters.
 
 ##Installation
-Install through composer. Add require `mjarestad/filtry` to your `composer.json`
-
-    "require": {
-        "mjarestad/filtry": "dev-master"
-    }
+composer require mjarestad/filtry
     
 ### Laravel
 
