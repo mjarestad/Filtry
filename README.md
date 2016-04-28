@@ -1,5 +1,7 @@
-Filtry
-==============
+#Filtry
+
+[![Build Status](https://api.travis-ci.org/mjarestad/Filtry.svg)](https://api.travis-ci.org/mjarestad/Filtry)
+[![License](https://poser.pugx.org/mjarestad/filtry/license)](https://packagist.org/packages/mjarestad/filtry)
 
 A package to filter and sanitize input data in Laravel 4/5 or as a standalone package.
 This is perfect to use with the Laravel 4 Validation class to filter data before validation.
