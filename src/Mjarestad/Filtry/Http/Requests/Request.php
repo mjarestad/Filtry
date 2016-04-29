@@ -4,6 +4,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 abstract class Request extends FormRequest
 {
+    /**
+     * Add filters from the filters method if it exists.
+     */
     public function sanitize()
     {
         if (method_exists($this, 'filters')) {
@@ -12,6 +15,10 @@ abstract class Request extends FormRequest
         }
     }
 
+    /**
+     * Get the validator instance and execute the filter sanitation.
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
     protected function getValidatorInstance()
     {
         $this->sanitize();
