@@ -1,5 +1,6 @@
 #Filtry
 
+[![Latest Stable Version](https://poser.pugx.org/mjarestad/filtry/v/stable)](https://packagist.org/packages/mjarestad/filtry)
 [![Build Status](https://api.travis-ci.org/mjarestad/Filtry.svg)](https://api.travis-ci.org/mjarestad/Filtry)
 [![License](https://poser.pugx.org/mjarestad/filtry/license)](https://packagist.org/packages/mjarestad/filtry)
 
