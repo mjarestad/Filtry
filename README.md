@@ -8,6 +8,9 @@ A package to filter and sanitize input data in Laravel 4/5 or as a standalone pa
 This is perfect to use with the Laravel 4 Validation class to filter data before validation.
 You can easily extend and create your own custom filters.
 
+##Requirements
+php version > 5.6
+
 ##Installation
 composer require mjarestad/filtry
     
