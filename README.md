@@ -12,21 +12,28 @@ You can easily extend and create your own custom filters.
 php version > 5.6
 
 ##Installation
+
+```bash
 composer require mjarestad/filtry
-    
+```
+
 ### Laravel
 
 Add the ServiceProvider to the providers array in `app/config/app.php`
 
-    Laravel 5:
-    Mjarestad\Filtry\FiltryServiceProviderLaravel5::class
+```
+Laravel 5:
+Mjarestad\Filtry\FiltryServiceProviderLaravel5::class,
 
-    Laravel 4:
-    'Mjarestad\Filtry\FiltryServiceProvider',
+Laravel 4:
+'Mjarestad\Filtry\FiltryServiceProvider',
+```
 
 Add the Facade to the aliases array in `app/config/app.php`
 
-    'Filtry'  => 'Mjarestad\Filtry\Facades\Filtry',
+```
+'Filtry'  => 'Mjarestad\Filtry\Facades\Filtry',
+```
 
 ##Usage
 
@@ -36,103 +43,132 @@ Add the Facade to the aliases array in `app/config/app.php`
 
 Extend your Form Request Validation classes with the provided Filtry Request to filter input data before validation.
 
-    use Mjarestad\Filtry\Http\Requests\Request;
+```php
+<?php
+use Mjarestad\Filtry\Http\Requests\Request;
 
-    class StorePostRequest extends Request
+class StorePostRequest extends Request
+{
+    public function rules()
     {
-        public function rules()
-        {
-            return [
-                'author' => 'required',
-                'slug'   => 'required'
-            ];
-        }
-
-        public function filters()
-        {
-            return [
-                'author' => 'trim|ucwords',
-                'slug'   => 'trim|slug'
-            ];
-        }
+        return [
+            'author' => 'required',
+            'slug'   => 'required',
+        ];
     }
+
+    public function filters()
+    {
+        return [
+            'author' => 'trim|ucwords',
+            'slug'   => 'trim|slug',
+        ];
+    }
+}
+```
 
 ###Laravel 4
 
 Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
-    class Post extends Eloquent {
-    
-        public static $filters = array(
-            'author' => 'trim|ucwords',
-            'slug'   => 'trim|slug'
-        );
-        
-        public static $rules = array(
-            'author' => 'required',
-            'slug'   => 'required'
-        );
-        
-    }
-    
-In your controller or service call `Filtry::make()` and provide the data to filter and your filters array.
+```php
+<?php
+class Post extends Eloquent {
 
-    $filtry = Filtry::make(Input::all(), Post::$filters);
-    
-To get the filtered value use `$filtry->getFiltered()`
-
-    $validator = Validator::make($filtry->getFiltered(), Post::$rules);
-    
-To get the unfiltered values, use:
-
-    $filtry->getOld();
-    
-Every method can be used to filter a single value.
-
-    Filtry::trim('some string');
-    Filtry::slug('some string');
-    Filtry::snakeCase('some string');
-    
-###Standalone
-
-    $filters = array(
+    public static $filters = array(
         'author' => 'trim|ucwords',
         'slug'   => 'trim|slug'
     );
-    
-    $data = array(
-        'author' => 'John Doe',
-        'slug'   => 'My post title',
+
+    public static $rules = array(
+        'author' => 'required',
+        'slug'   => 'required'
     );
-    
-    $filtry = new Mjarestad\Filtry\Filtry;
-    $filtry->make($data, $filters);
-    $filteredData = $filtry->getFiltered();
-    
+}
+```
+
+In your controller or service call `Filtry::make()` and provide the data to filter and your filters array.
+
+```php
+<?php
+$filtry = Filtry::make(Input::all(), Post::$filters);
+```
+
+To get the filtered value use `$filtry->getFiltered()`
+
+```php
+<?php
+$validator = Validator::make($filtry->getFiltered(), Post::$rules);
+```
+
+To get the unfiltered values, use:
+
+```php
+<?php
+$filtry->getOld();
+```
+
+Every method can be used to filter a single value.
+
+```php
+<?php
+Filtry::trim('some string');
+Filtry::slug('some string');
+Filtry::snakeCase('some string');
+```
+
+###Standalone
+
+```php
+<?php
+$filters = [
+    'author' => 'trim|ucwords',
+    'slug'   => 'trim|slug',
+];
+
+$data = [
+    'author' => 'John Doe',
+    'slug'   => 'My post title',
+];
+
+$filtry = new Mjarestad\Filtry\Filtry;
+$filtry->make($data, $filters);
+$filteredData = $filtry->getFiltered();
+```
+
 ##Create custom filters
 
 ###Laravel 4
 
 Extend with custom filters to use in `Filtry::make()` or as dynamic methods.
 
-    Filtry::extend('my_custom_filter', function($data){
-        return str_replace('-', '_', $data);
-    });
-    
+```php
+<?php
+Filtry::extend('my_custom_filter', function ($data) {
+    return str_replace('-', '_', $data);
+});
+```
+
 Call the extended filter dynamically
 
-    Filtry::myCustomFilter('some-custom-string');
+```php
+<?php
+Filtry::myCustomFilter('some-custom-string');
+```
 
 ###Standalone
 
-    $filtry = new Mjarestad\Filtry\Filtry;
+```php
+<?php
+$filtry = new Mjarestad\Filtry\Filtry;
 
-    $filtry->extend('my_custom_filter', function($data){
-        return str_replace('-', '_', $data);
-    });
+$filtry->extend('my_custom_filter', function ($data) {
+    return str_replace('-', '_', $data);
+});
 
-    $filtry->myCustomFilter('some-custom-string');
-    
+$filtry->myCustomFilter('some-custom-string');
+```
+
 ##Available filters
 
 ###Core PHP filters
