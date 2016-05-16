@@ -45,6 +45,7 @@ Extend your Form Request Validation classes with the provided Filtry Request to 
 
 ```php
 <?php
+
 use Mjarestad\Filtry\Http\Requests\Request;
 
 class StorePostRequest extends Request
@@ -73,6 +74,7 @@ Add a the filters property to your Eloquent Model or anywhere else you prefer.
 
 ```php
 <?php
+
 class Post extends Eloquent {
 
     public static $filters = array(
@@ -91,6 +93,7 @@ In your controller or service call `Filtry::make()` and provide the data to filt
 
 ```php
 <?php
+
 $filtry = Filtry::make(Input::all(), Post::$filters);
 ```
 
@@ -98,6 +101,7 @@ To get the filtered value use `$filtry->getFiltered()`
 
 ```php
 <?php
+
 $validator = Validator::make($filtry->getFiltered(), Post::$rules);
 ```
 
@@ -105,6 +109,7 @@ To get the unfiltered values, use:
 
 ```php
 <?php
+
 $filtry->getOld();
 ```
 
@@ -112,6 +117,7 @@ Every method can be used to filter a single value.
 
 ```php
 <?php
+
 Filtry::trim('some string');
 Filtry::slug('some string');
 Filtry::snakeCase('some string');
@@ -121,6 +127,7 @@ Filtry::snakeCase('some string');
 
 ```php
 <?php
+
 $filters = [
     'author' => 'trim|ucwords',
     'slug'   => 'trim|slug',
@@ -144,6 +151,7 @@ Extend with custom filters to use in `Filtry::make()` or as dynamic methods.
 
 ```php
 <?php
+
 Filtry::extend('my_custom_filter', function ($data) {
     return str_replace('-', '_', $data);
 });
@@ -153,6 +161,7 @@ Call the extended filter dynamically
 
 ```php
 <?php
+
 Filtry::myCustomFilter('some-custom-string');
 ```
 
@@ -160,6 +169,7 @@ Filtry::myCustomFilter('some-custom-string');
 
 ```php
 <?php
+
 $filtry = new Mjarestad\Filtry\Filtry;
 
 $filtry->extend('my_custom_filter', function ($data) {
