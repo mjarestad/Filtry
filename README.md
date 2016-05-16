@@ -145,7 +145,7 @@ $filteredData = $filtry->getFiltered();
 
 ##Create custom filters
 
-###Laravel 4
+###Laravel
 
 Extend with custom filters to use in `Filtry::make()` or as dynamic methods.
 
@@ -200,7 +200,7 @@ $filtry->myCustomFilter('some-custom-string');
 * slug - makes string url-friendly
 * prep_url - adds http:// if not present
 
-###Laravel 4 filters
+###Laravel filters
 
 * snake_case
 * camel_case
