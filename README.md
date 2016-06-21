@@ -165,6 +165,45 @@ Call the extended filter dynamically
 Filtry::myCustomFilter('some-custom-string');
 ```
 
+#### Optional parameters
+
+You can define optional parameters for your filter.
+
+```php
+<?php
+
+Filtry::extend('custom_filter', function ($data, $param1, $param2) {
+    return $data . ($param1 + $param2);
+});
+```
+
+And then add the parameters in your request:
+
+```php
+<?php
+
+use Mjarestad\Filtry\Http\Requests\Request;
+
+class StorePostRequest extends Request
+{
+    public function rules()
+    {
+        return [
+            'author' => 'required',
+        ];
+    }
+
+    public function filters()
+    {
+        return [
+            'author' => 'custom_param:1,2',
+        ];
+    }
+}
+```
+
+It will concatenate 3 to your author attribute.
+
 ###Standalone
 
 ```php
