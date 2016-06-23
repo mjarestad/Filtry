@@ -35,10 +35,22 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('test', $data);
 	}
 
+	public function testStrToLowerWithSpecialCharacters()
+	{
+		$data = $this->filtry->lower('ÅÄÖ');
+		$this->assertEquals('åäö', $data);
+	}
+
 	public function testStrToUpper()
 	{
 		$data = $this->filtry->upper('test');
 		$this->assertEquals('TEST', $data);
+	}
+
+	public function testStrToUpperWithSpecialCharacters()
+	{
+		$data = $this->filtry->upper('åäö');
+		$this->assertEquals('ÅÄÖ', $data);
 	}
 
 	public function testUcFirst()

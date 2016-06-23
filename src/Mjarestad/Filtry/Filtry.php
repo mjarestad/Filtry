@@ -129,7 +129,7 @@ class Filtry
 	 */
 	public function lower($data)
 	{
-		return strtolower($data);
+		return mb_strtolower($data);
 	}
 
 	/**
@@ -139,7 +139,7 @@ class Filtry
 	 */
 	public function upper($data)
 	{
-		return strtoupper($data);
+		return mb_strtoupper($data);
 	}
 
 	/**
