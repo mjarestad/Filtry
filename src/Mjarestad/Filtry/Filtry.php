@@ -468,10 +468,19 @@ class Filtry
 			$data = $this->data[$attribute];
 
 			foreach ($filters as $filter) {
+				// The format for specifying filter and parameters follows an
+				// easy {filter}:{parameters} formatting convention.
+				if (strpos($filter, ':') !== false) {
+					list($filter, $parameterList) = explode(':', $filter, 2);
+					$parameters = explode(',', $parameterList);
+				} else {
+					$parameters = [];
+				}
+				
 				if (method_exists($this, $this->camelCase($filter))) {
-					$data = $this->filterWalker($filter, $data);
+					$data = $this->filterWalker($filter, $data, $parameters);
 				} elseif (isset($this->extensions[$filter])) {
-					$data = $this->filterExtensionWalker($filter, $data);
+					$data = $this->filterExtensionWalker($filter, $data, $parameters);
 				} else {
 					throw new \Exception("'$filter' is not a valid filter.");
 				}
@@ -487,18 +496,21 @@ class Filtry
 	 * Walk through filters
 	 * @param  string $filter
 	 * @param  array $data
-	 * @return string|array
+	 * @param array $parameters
+	 * @return array|string
 	 */
-	protected function filterWalker($filter, $data)
+	protected function filterWalker($filter, $data, $parameters = [])
 	{
 		$filter = $this->camelCase($filter);
+		array_unshift($parameters, $data);
 
 		if (is_array($data) and $this->recursive === true) {
 			foreach ($data as $key => $value) {
-				$data[$key] = call_user_func(array($this, $filter), $value);
+				$parameters[0] = $value;
+				$data[$key] = call_user_func_array([$this, $filter], $parameters);
 			}
 		} else {
-			$data = call_user_func(array($this, $filter), $data);
+			$data = call_user_func_array(array($this, $filter), $parameters);
 		}
 
 		return $data;
@@ -510,14 +522,17 @@ class Filtry
 	 * @param  array $data
 	 * @return string|array
 	 */
-	protected function filterExtensionWalker($filter, $data)
+	protected function filterExtensionWalker($filter, $data, $parameters = [])
 	{
+		array_unshift($parameters, $data);
+
 		if (is_array($data) and $this->recursive === true) {
 			foreach ($data as $key => $value) {
-				$data[$key] = call_user_func($this->extensions[$filter], $data);
+				$parameters[0] = $value;
+				$data[$key] = call_user_func_array($this->extensions[$filter], $parameters);
 			}
 		} else {
-			$data = call_user_func($this->extensions[$filter], $data);
+			$data = call_user_func_array($this->extensions[$filter], $parameters);
 		}
 
 		return $data;

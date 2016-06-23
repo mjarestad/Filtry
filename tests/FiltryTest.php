@@ -4,7 +4,10 @@ use Mjarestad\Filtry\Filtry;
 
 class FiltryTest extends \PHPUnit_Framework_TestCase
 {
-	public $filter;
+	/**
+	 * @var Filtry
+	 */
+	public $filtry;
 
 	public function setUp()
 	{
@@ -166,8 +169,21 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 			return 'test-string';
 		});
 		$filter = $this->filtry->make(array('attribute' => 'some data'), array('attribute' => 'custom_filter'));
-		$data = $filter->getfiltered();
+		$data = $filter->getFiltered();
 		$this->assertEquals('test-string', $data['attribute']);
+	}
+
+	public function testMakeWithCustomFilterAndParameters()
+	{
+		$this->filtry->extend('custom_filter', function($value, $param1, $param2) {
+			return $value . ($param1 + $param2);
+		});
+		$filter = $this->filtry->make(
+			['attribute' => 'some data'],
+			['attribute' => 'custom_filter:1,2']
+		);
+		$data = $filter->getFiltered();
+		$this->assertEquals('some data3', $data['attribute']);
 	}
 
     public function testGetValuesWithoutFilters()
@@ -175,5 +191,5 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
         $filter = $this->filtry->make(array('attribute_1' => ' value ', 'attribute_2' => ' value '), array('attribute_1' => 'trim'));
         $data = $filter->getFiltered();
         $this->assertEquals(' value ', $data['attribute_2']);
-    } 
+    }
 }
