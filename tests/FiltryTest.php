@@ -98,6 +98,16 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('testsomemore', $data);
     }
 
+	public function testReplace()
+	{
+        $filter = $this->filtry->make(
+            ['attribute' => '20 %'],
+            ['attribute' => 'replace:%,percent']
+        );
+        $data = $filter->getFiltered();
+		$this->assertEquals('20 percent', $data['attribute']);
+	}
+
 	public function testSlug()
 	{
 		$data = $this->filtry->slug('test Some MORE');
@@ -142,14 +152,20 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetOld()
 	{
-		$filter = $this->filtry->make(array('attribute' => ' test get filtered'), array('attribute' => 'trim|ucwords'));
+		$filter = $this->filtry->make(
+            ['attribute' => ' test get filtered'],
+            ['attribute' => 'trim|ucwords']
+        );
 		$data = $filter->getOld();
 		$this->assertEquals(' test get filtered', $data['attribute']);
 	}
 
 	public function testGetFiltered()
 	{
-		$filter = $this->filtry->make(array('attribute' => ' test get filtered'), array('attribute' => 'trim|ucwords'));
+		$filter = $this->filtry->make(
+            ['attribute' => ' test get filtered'],
+            ['attribute' => 'trim|ucwords']
+        );
 		$data = $filter->getFiltered();
 		$this->assertEquals('Test Get Filtered', $data['attribute']);
 	}
@@ -168,7 +184,10 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 		$this->filtry->extend('custom_filter', function(){
 			return 'test-string';
 		});
-		$filter = $this->filtry->make(array('attribute' => 'some data'), array('attribute' => 'custom_filter'));
+		$filter = $this->filtry->make(
+            ['attribute' => 'some data'],
+            ['attribute' => 'custom_filter']
+        );
 		$data = $filter->getFiltered();
 		$this->assertEquals('test-string', $data['attribute']);
 	}
@@ -188,7 +207,10 @@ class FiltryTest extends \PHPUnit_Framework_TestCase
 
     public function testGetValuesWithoutFilters()
     {
-        $filter = $this->filtry->make(array('attribute_1' => ' value ', 'attribute_2' => ' value '), array('attribute_1' => 'trim'));
+        $filter = $this->filtry->make(
+            ['attribute_1' => ' value ', 'attribute_2' => ' value '],
+            ['attribute_1' => 'trim']
+        );
         $data = $filter->getFiltered();
         $this->assertEquals(' value ', $data['attribute_2']);
     }

@@ -172,9 +172,21 @@ class Filtry
 		return stripslashes($data);
 	}
 
+    /**
+     * Replace string
+     * @param $data
+     * @param $search
+     * @param $replace
+     * @return mixed
+     */
+	public function replace($data, $search, $replace)
+	{
+		return str_replace($search, $replace, $data);
+	}
+
 	/**
 	 * Snake case
-	 * @param  string $data
+	 * @param  string $value
      * @param string $delimiter
 	 * @return string
 	 */
