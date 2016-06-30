@@ -62,7 +62,7 @@ class StorePostRequest extends Request
     {
         return [
             'author' => 'trim|ucwords',
-            'slug'   => 'trim|replace:haystack,needle|slug',
+            'slug'   => 'trim|replace:%,percent|slug',
         ];
     }
 }
@@ -79,7 +79,7 @@ class Post extends Eloquent {
 
     public static $filters = array(
         'author' => 'trim|ucwords',
-        'slug'   => 'trim|replace:haystack,needle|slug'
+        'slug'   => 'trim|replace:%,percent|slug'
     );
 
     public static $rules = array(
@@ -130,7 +130,7 @@ Filtry::snakeCase('some string');
 
 $filters = [
     'author' => 'trim|ucwords',
-    'slug'   => 'trim|replace:haystack,needle|slug',
+    'slug'   => 'trim|replace:%,percent|slug',
 ];
 
 $data = [
