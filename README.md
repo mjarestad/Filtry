@@ -62,7 +62,7 @@ class StorePostRequest extends Request
     {
         return [
             'author' => 'trim|ucwords',
-            'slug'   => 'trim|slug',
+            'slug'   => 'trim|replace:haystack,needle|slug',
         ];
     }
 }
@@ -79,7 +79,7 @@ class Post extends Eloquent {
 
     public static $filters = array(
         'author' => 'trim|ucwords',
-        'slug'   => 'trim|slug'
+        'slug'   => 'trim|replace:haystack,needle|slug'
     );
 
     public static $rules = array(
@@ -130,7 +130,7 @@ Filtry::snakeCase('some string');
 
 $filters = [
     'author' => 'trim|ucwords',
-    'slug'   => 'trim|slug',
+    'slug'   => 'trim|replace:haystack,needle|slug',
 ];
 
 $data = [
@@ -196,7 +196,7 @@ class StorePostRequest extends Request
     public function filters()
     {
         return [
-            'author' => 'custom_param:1,2',
+            'author' => 'custom_filter:1,2',
         ];
     }
 }
@@ -230,6 +230,7 @@ $filtry->myCustomFilter('some-custom-string');
 * ucfirst
 * ucwords
 * stripslashes
+* replace:search,replace (str_replace)
 
 ###Custom filters
 
