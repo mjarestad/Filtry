@@ -54,6 +54,7 @@ class Filtry
 		$this->data 		= $data;
 		$this->filters 		= $this->explodeFilters($filters);
 		$this->recursive 	= $recursive;
+		$this->filteredData	= array();
 
 		return $this;
 	}
@@ -66,7 +67,7 @@ class Filtry
 	{
 		$this->filter();
 
-        return array_merge($this->data, $this->filteredData);
+		return array_merge($this->data, $this->filteredData);
 	}
 
 	/**
